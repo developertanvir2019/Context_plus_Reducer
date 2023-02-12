@@ -1,6 +1,7 @@
 import { useProducts } from "../Context/ProductProvider";
 import { actionTypes } from "../state/actionType";
 import { BiListPlus } from 'react-icons/bi';
+import { toast } from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
     const { dispatch } = useProducts();
@@ -26,7 +27,7 @@ const ProductCard = ({ product }) => {
                     className='bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold'
                     onClick={() => dispatch({ type: actionTypes.ADD_TO_CART, payload: product })}
                 >
-                    Add to cart
+                    <p onClick={() => toast.success('successfully added this item to cart')}> Add to cart</p>
                 </button>
                 <button
                     title='Add to wishlist'
